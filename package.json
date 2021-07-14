@@ -19,6 +19,7 @@
   "homepage": "https://github.com/connellmccarthy/real-or-3d#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "express-subdomain": "^1.0.5",
     "liquidjs": "^9.25.1"
   },
   "engines": {
