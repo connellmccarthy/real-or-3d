@@ -1,0 +1,7 @@
+{% if page.toast %}
+  {% if page.toast.successMessage %}
+    Success: {{ page.toast.successMessage }}
+  {% elsif page.toast.errorMessage %}
+    Error: {{ page.toast.errorMessage }}
+  {% endif %}
+{% endif %}

@@ -6,6 +6,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
+const flash = require('req-flash')
 var { Liquid } = require('liquidjs')
 var engine = new Liquid({
   extname: '.liquid'
@@ -22,6 +23,7 @@ app.use(cors())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use(cookieParser())
+app.use(express.static('public'))
 
 app.use(session({
   name: 'sid',
@@ -33,6 +35,7 @@ app.use(session({
     maxAge: 1000* 60 * 60 * 24 * 365
   }
 }))
+app.use(flash())
 
 
 // Get site config

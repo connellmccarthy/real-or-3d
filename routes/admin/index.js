@@ -8,7 +8,12 @@ router.post('/login', login, async (req, res) => {
 })
 
 router.get('/login', (req, res) => {
-  res.render('admin/login')
+  res.render('admin/login', {
+    page: {
+      title: 'Admin',
+      toast: req.flash()
+    }
+  })
 })
 
 router.use('/*', verify, (req, res, next) => {
