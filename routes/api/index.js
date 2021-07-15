@@ -6,10 +6,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/users', (req, res) => {
-  res.json([{
-    name: 'Connell',
-    pin: '2612'
-  }])
+  res.json(users)
 })
 
 module.exports = router

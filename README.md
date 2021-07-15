@@ -14,7 +14,6 @@ Add the following lines to the end of your `/etc/hosts` file
 
 ```
 127.0.0.1       real-or-3d.local
-127.0.0.1       api.real-or-3d.local
 ```
 
 ### Install dependencies
