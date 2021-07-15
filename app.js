@@ -48,10 +48,7 @@ try {
 }
 
 app.use((req, res, next) => {
-  res.locals.site = {
-    title: data.site.title,
-    description: data.site.description
-  }
+  res.locals.site = data.site
   next()
 })
 
