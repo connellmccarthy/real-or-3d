@@ -20,7 +20,7 @@ Add the following lines to the end of your `/etc/hosts` file
 Run `npm install`
 
 ## Running locally
-All you have to do is run `npm start` and you're good to go. It'll be live at `http://real-or-3d.local:3000`
+All you have to do is run `npm start` and you're good to go. It'll be live at http://real-or-3d.local:3000
 
 
 Happy hacking partner.
