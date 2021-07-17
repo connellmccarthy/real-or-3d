@@ -28,7 +28,8 @@
     "liquidjs": "^9.25.1",
     "module-alias": "^2.2.2",
     "mysql": "^2.18.1",
-    "req-flash": "^0.0.3"
+    "req-flash": "^0.0.3",
+    "serve-favicon": "^2.5.0"
   },
   "engines": {
     "node": "16.x"

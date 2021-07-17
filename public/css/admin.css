@@ -1,0 +1,381 @@
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
+  text-rendering: optimizeLegibility;
+  background: #f8f8f8;
+}
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.flex {
+  display: flex;
+}
+.flex.between {
+  justify-content: space-between;
+}
+.flex.a-top {
+  align-items: flex-start;
+}
+.flex.a-center {
+  align-items: center;
+}
+.flex.a-bottom {
+  align-items: flex-end;
+}
+.danger {
+  color: red;
+}
+.success {
+  color: green;
+}
+img {
+  max-width: 100%;
+}
+.btn {
+  padding: 12px 20px;
+  display: inline-block;
+  border-radius: 4px;
+  text-decoration: none;
+  height: fit-content;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+}
+.btn__icon_text i {
+  margin-right: 10px; 
+}
+.btn__small {
+  font-size: 12px;
+}
+a.btn {
+  font-size: 0.8em;
+}
+.btn__round {
+  padding: 12px 13px;
+  border-radius: 50px;
+}
+.btn__outline {
+  border: 1px solid;
+}
+.btn__outline.btn__danger {
+  background-color: transparent;
+  border-color: red;
+  color: red;
+}
+.btn__primary {
+  background-color: #6a2de2;
+  color: #fff;
+}
+.btn__primary:hover {
+  background-color: #753aea;
+}
+.btn__primary:focus, .btn__primary:active {
+  background-color: #602bca;
+}
+.btn__secondary {
+  background-color: #f8f8f8;
+}
+.btn__secondary:hover {
+  background-color: #efefef;
+}
+.btn__secondary:focus, .btn__secondary:active {
+  background-color: #d1d1d1;
+}
+.btn__plain {
+  background-color: transparent;
+}
+.btn__plain:hover {
+  background-color: #f8f8f8;
+}
+.btn__link {
+  background-color: transparent;
+}
+.btn__link:hover {
+  color: #6a2de2;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+span.pill {
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 13px;
+  text-transform: capitalize;
+  margin-right: 8px;
+  font-weight: 500;
+}
+.pill__default {
+  background-color: #f8f8f8;
+}
+.pill__success {
+  background-color: #e8f7e8;
+  color: green;
+}
+.pill__danger {
+  background-color: #ffe8e8;
+  color: red;
+}
+.pill__info {
+  background-color: #e8e2f5;
+  color: #602bca;
+}
+
+.input-field {
+  width: 50%;
+  padding: 8px 4px;
+}
+.input-field.three {
+  width: 33%;
+}
+label {
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+input[type="submit"] {
+  margin: 25px 0;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+  background: rgb(245 245 245);
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  min-width: 100%;
+}
+input[type="date"] {
+  padding: 9px;
+  background-color: rgb(245 245 245);
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+}
+select {
+  background: rgb(245 245 245);
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  min-width: 100%;
+}
+select option {
+  text-transform: capitalize;
+}
+
+
+.page_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 240px;
+  flex-direction: column;
+  box-shadow: 0 0 0 1px #eee;
+  padding: 20px;
+  background: #fff;
+}
+.sidebar__logos {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.sidebar__logo {
+  display: block;
+  max-height: 100px;
+  max-width: 100px;
+}
+.sidebar__title {
+  font-size: 16px;
+  margin: 0;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e6e6e6b3;
+}
+.sidebar__links {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+.sidebar__links li {
+  margin: 5px 0;
+}
+.sidebar a {
+  padding: 15px 10px;
+  display: block;
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+}
+.sidebar a:hover {
+  background: #f8f8f8;
+}
+.sidebar a.active {
+  background: #f8f8f8;
+}
+p.copyright {
+  font-size: 12px;
+  color: rgb(120,120,120);
+  text-align: center;
+  margin-bottom: 30px;
+}
+.wr {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+.content {
+  flex-grow: 1;
+  margin: 30px 0;
+  min-height: calc(100vh - 144px);
+}
+.card {
+  border-radius: 4px;
+  box-shadow: 0 1px 3px #0000000a;
+  background: #fff;
+  margin-top: 10px;
+  padding: 15px;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.tracklist li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f8f8f8;
+}
+ul.tracklist li:first-of-type {
+  padding-top: 0;
+}
+ul.tracklist li:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+ul.tracklist li .album-art {
+  height: 50px;
+  margin-right: 15px;
+}
+ul.tracklist li .album-art img {
+  height: 100%;
+  border-radius: 4px;
+}
+ul.tracklist li .track-info {
+  flex-grow: 1;
+}
+ul.tracklist li .track-info p {
+  margin: 4px 0;
+}
+ul.tracklist li .track-info p.track-artist {
+  font-size: 12px;
+  color: rgb(120,120,120);
+}
+.pw-block {
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%,-50%);
+}
+.pw-block i.fa-lock {
+  font-size: 1.4em;
+  padding: 15px 16px;
+  border: 1px solid rgb(150, 150, 150);
+  color: rgb(150, 150, 150);
+  border-radius: 50px;
+  margin-bottom: 1em;
+}
+.pw-block form {
+  position: relative;
+}
+.pw-block button {
+  -webkit-appearance: none;
+  border: none;
+  background: none;
+  font-size: 1.4em;
+  position: relative;
+  color: rgb(40,40,40);
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+  right: 6px;
+}
+.pw-block input[type="password"],
+.pw-block input[type="text"] {
+  background: rgb(240,240,240);
+  padding: 20px;
+  margin-bottom: 0.5em;
+}
+.pw-block p.error {
+  color: #a92222;
+  font-size: 0.8em;
+}
+.artwork {
+  height: 160px;
+  width: 160px;
+  border-radius: 4px;
+  margin-right: 12px;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  border: 2px solid #6a2de2;
+}
+.artwork .check {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  color: #6a2de2;
+  background: #fff;
+  padding: 4px 5px;
+  border-radius: 100%;
+}
+.artwork img {
+  height: 100%;
+}
+.toast {
+  background: #202020;
+  height: auto;
+  width: auto;
+  max-width: 200px;
+  color: #fff;
+  border-radius: 4px;
+  padding: 12px 18px;
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+}
+.toast p {
+  display: block;
+  margin: 0;
+  width: fit-content;
+  padding: 0;
+}
+.toast .icon {
+  margin-right: 8px;
+}

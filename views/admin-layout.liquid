@@ -1,0 +1,9 @@
+<html>
+  {% include 'includes/head', route: 'admin' %}
+  <body>
+    {% include 'includes/admin/toast' %}
+    <div class="main">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

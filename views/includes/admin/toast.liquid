@@ -1,0 +1,15 @@
+{% if page.toast.successMessage or page.toast.errorMessage %}
+  <div class="toast flex a-center">
+    {% if page.toast.successMessage %}
+      <div class="icon">
+        <i class="fas fa-check-circle success"></i>
+      </div>
+      <p>{{ page.toast.successMessage }}</p>
+    {% elsif page.toast.errorMessage %}
+      <div class="icon">
+        <i class="fas fa-exclamation-circle danger"></i>
+      </div>
+      <p>{{ page.toast.errorMessage }}</p>
+    {% endif %}
+  </div>
+{% endif %}

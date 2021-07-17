@@ -2,6 +2,7 @@ require('dotenv').config()
 require('module-alias/register')
 const express = require('express')
 const session = require('express-session')
+const favicon = require('serve-favicon')
 const path = require('path')
 const bodyParser = require('body-parser')
 const cors = require('cors')
@@ -24,6 +25,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(express.static('public'))
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 app.use(session({
   name: 'sid',

@@ -1,6 +1,11 @@
 <head>
   <title>{{ site.title }} | {{ page.title }}</title>
   {% if route == 'admin' %}
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admin.css">
+  {% else %}
+    <link rel="stylesheet" href="/css/skeleton.css">
+    <link rel="stylesheet" href="/css/main.css">
   {% endif %}
+  <script src="https://kit.fontawesome.com/e85c580b64.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
