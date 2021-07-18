@@ -45,6 +45,15 @@ body.vip {
 body.loading, body.loading a {
 	cursor: url(/img/cur/loading.gif) 10 10, auto !important;
 }
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
 p {
 	font-weight: 400;
 }
@@ -64,10 +73,15 @@ h1,h2,h3,h4,b {
 .flex.a-center {
 	align-items: center;
 }
-a {
+a,
+button {
 	cursor: url(/img/cur/pointer.gif) 10 10, pointer;
 }
-a.btn {
+a.btn,
+button.btn {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
 	position: relative;
 	z-index: 2;
 	color:#404040;
@@ -81,21 +95,23 @@ a.btn {
 	border-bottom-color: var(--ui-outer-b-2);
 	border-right-color: var(--ui-outer-b-2);
 	display: inline-block;
-    width: fit-content;
-	margin: 5px 5px 5px 0;
+  width: fit-content;
 	text-align: center;
+  margin: 0;
 }
 a.btn.slim {
 	padding: 4px 10px;
 }
-a.btn.active {
+a.btn.active,
+button.btn.active {
 	background:url('/img/cur/btn-active.jpg') #f3f4f4;
 	border-top-color: var(--ui-outer-b-2);
 	border-left-color: var(--ui-outer-b-2);
 	border-bottom-color: var(--ui-inner-s);
 	border-right-color: var(--ui-inner-s);
 }
-a.btn::after {
+a.btn::after,
+button.btn::after {
 	content:"";
 	height:80%;
 	width:90%;
@@ -111,10 +127,12 @@ a.btn::after {
 	-webkit-transform:translate(-50%,-50%);
 	display: none;
 }
-a.btn:active {
+a.btn:active,
+button.btn:active {
 	border-color:var(--ui-outer-b-2);
 }
-a.btn:active::after {
+a.btn:active::after,
+button.btn:active::after {
 	display: block;
 }
 a.btn.right {
@@ -491,7 +509,7 @@ canvas#confettiCanvas {
 	width: 100%;
 	margin: 0;
 	padding: 0.5em;
-	z-index: 99;
+	z-index: 999999999;
 }
 .taskbar p {
 	margin: 0;
@@ -506,4 +524,10 @@ canvas#confettiCanvas {
 	border-left-color: var(--ui-outer-b-3);
 	border-bottom-color: var(--ui-inner-s);
 	border-right-color: var(--ui-inner-s);
+}
+.taskbar .tabs a {
+  margin-right: 4px;
+}
+.taskbar.tabs a:last-of-type {
+  margin-right: 0;
 }
