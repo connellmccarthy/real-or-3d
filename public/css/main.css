@@ -144,6 +144,9 @@ a.btn.m-l {
 a.btn.challenge_handler {
 	width: 80px;
 }
+a.dark {
+	color: var(--ui-title-vip);
+}
 .draggable {
 	z-index: 98 !important;
 }
@@ -518,12 +521,18 @@ canvas#confettiCanvas {
 .taskbar .date {
 	padding: 0.5em 1em;
 	text-align: center;
-	display: block;
+	display: flex;
 	border: 2px solid;
 	border-top-color: var(--ui-outer-b-3);
 	border-left-color: var(--ui-outer-b-3);
 	border-bottom-color: var(--ui-inner-s);
 	border-right-color: var(--ui-inner-s);
+}
+.taskbar .date .divider {
+	height: 20px;
+	width: 1px;
+	background: var(--ui-outer-b-3);
+	margin: 0 12px;
 }
 .taskbar .tabs a {
   margin-right: 4px;

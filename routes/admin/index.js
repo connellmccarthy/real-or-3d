@@ -21,7 +21,12 @@ router.use('/*', verify, (req, res, next) => {
 })
 
 router.get('/', (req, res) => {
-  res.send('Authenticated!')
+  res.render('admin/index',  {
+    page: {
+      title: 'Admin',
+      toast: req.flash()
+    }
+  })
 })
 
 module.exports = router

@@ -10,7 +10,7 @@ site:
     - item:
       home: false
       title: "Icebox"
-      url: "/icebox"
+      url: "/icebox/"
     - item:
       home: false
       title: "Challenges"
@@ -19,3 +19,17 @@ site:
       home: false
       title: "Seasons"
       url: "/seasons/"
+  admin_menu:
+    - item:
+      title: "Dashboard"
+      url: "/admin/dashboard"
+      icon: "chart-line"
+    - item:
+      title: "Challenges"
+      url: "/admin/challenges"
+      icon: "images"
+    - item:
+      title: "Seasons"
+      url: "/admin/seasons"
+      icon: "folder-tree"
+      

@@ -1,0 +1,18 @@
+<div class="navigation flex d-vertical between a-center">
+  <div class="logo">
+    <a href="/admin/">
+      <img src="/img/icon.png">
+    </a>
+  </div>
+  <ul class="nav-items">
+    {% for item in site.admin_menu %}
+      <li class="nav-item">
+        <a href="{{ item.url }}" class="btn">
+          <i class="fal fa-{{ item.icon }}" aria-hidden="true"></i>
+          {{ item.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a class="btn" href="/admin/logout/">Logout</a>
+</div>

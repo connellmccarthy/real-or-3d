@@ -22,6 +22,9 @@ body {
 .flex {
   display: flex;
 }
+.flex.d-vertical {
+  flex-direction: column;
+}
 .flex.between {
   justify-content: space-between;
 }
@@ -164,6 +167,11 @@ input[type="date"] {
   border-radius: 4px;
   width: 100%;
 }
+input[type="text"].error,
+input[type="email"].error,
+input[type="password"].error {
+  border: 2px solid lightcoral;
+}
 select {
   background: rgb(245 245 245);
   border: none;
@@ -175,59 +183,15 @@ select option {
   text-transform: capitalize;
 }
 
+.main {
+  display: grid;
+  grid-template-columns: 156px 1fr;
+}
 
 .page_header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 240px;
-  flex-direction: column;
-  box-shadow: 0 0 0 1px #eee;
-  padding: 20px;
-  background: #fff;
-}
-.sidebar__logos {
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.sidebar__logo {
-  display: block;
-  max-height: 100px;
-  max-width: 100px;
-}
-.sidebar__title {
-  font-size: 16px;
-  margin: 0;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #e6e6e6b3;
-}
-.sidebar__links {
-  list-style: none;
-  margin: 10px 0;
-  padding: 0;
-}
-.sidebar__links li {
-  margin: 5px 0;
-}
-.sidebar a {
-  padding: 15px 10px;
-  display: block;
-  border-radius: 4px;
-  text-decoration: none;
-  color: inherit;
-}
-.sidebar a:hover {
-  background: #f8f8f8;
-}
-.sidebar a.active {
-  background: #f8f8f8;
 }
 p.copyright {
   font-size: 12px;
@@ -238,9 +202,10 @@ p.copyright {
 .wr {
   display: flex;
   flex-direction: column;
-  max-width: 900px;
   margin: 0 auto;
   padding: 0 30px;
+  width: 100%;
+  grid-column: 2;
 }
 .content {
   flex-grow: 1;
@@ -378,4 +343,17 @@ ul.tracklist li .track-info p.track-artist {
 }
 .toast .icon {
   margin-right: 8px;
+}
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: auto;
+  padding: 1em;
+  border-right: 1px solid #d1d1d1;
+  grid-column: 1;
+}
+.navigation .logo img {
+  height: 80px;
 }
