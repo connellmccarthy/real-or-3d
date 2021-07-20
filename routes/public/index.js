@@ -1,47 +1,26 @@
 const express = require('express')
 const router = express.Router()
 const sql = require('@sql')
+const api = require('@api')
 
 router.get('/', async (req, res) => {
-  const results = await sql.query({
-    sql: 'SELECT ? + 1 AS solution',
-    values: ['1']
-  })
-  if (results[0]) {
-    console.log(`The solution is: ${results[0].solution}`)
-  }
-
-  const challenges = ['Hello world', 'Goodbye friend', 'Apple', 'Orange'];
-  res.render('index', {
+  const users = ['@someone', '@someoneelse', '@tacos', '@pizza']
+  res.render('public/index', {
     page: {
-      title: 'Leaderboard'
-    },
-    content: {
-      challenges: challenges
+      title: 'Leaderboard',
+      users: users
     }
   });
-
 })
 
 router.get('/challenges', async (req, res) => {
-  const results = await sql.query({
-    sql: 'SELECT ? + 1 AS solution', // dummy query to be replaced with challenges
-    values: ['1']
-  })
-  if(results[0]){
-    console.log(`pog ${results[0].solution}`)
-  }
-  
-  const challenges = ['real thing', '3d thing', 'real thing', 'no outlets'];
-  res.render('challenges', {
+  const challenges = await api.challenges.get()
+  res.render('public/challenges', {
     page: {
-      title: 'Leaderboard'
-    },
-    content: {
+      title: 'Challenges',
       challenges: challenges
     }
   });
-
 })
 
 module.exports = router

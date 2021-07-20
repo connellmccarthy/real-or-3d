@@ -1,0 +1,87 @@
+{% layout 'public-layout', route: 'leaderboard' %}
+{% block content %}
+  <div class="section window leaderboard twelve columns resizable draggable">
+    <div class="title flex between">
+      <p>{{ page.title }}</p>
+      <button class="btn close">
+        <span class="visually-hidden">Click or press ESC to close</span>
+      </button>
+    </div>
+    <div class="wrapper">
+      <div class="row">
+        <div class="one column"><p>Rank</p></div>
+        <div class="six columns"><p>Challenge</p></div>
+        <div class="one columns t-right nnom"><p>Real</p></div>
+        <div class="two columns t-right nnom"><p>Contributions</p></div>
+        <div class="two columns t-right"><p>Average</p></div>
+      </div>
+      <ul class="leader">
+        {% for user in page.users %}
+          <li class="clearfix">
+            <div class="one column"><p>1</p></div>
+            <div class="six columns"><p><a class="profile-link" href="#">{{ user }}</a></p></div>
+            <div class="one columns t-right nnom"><p>5</p></div>
+            <div class="two columns t-right nnom"><p>6</p></div>
+            <div class="two columns t-right"><p>83.33%</p></div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="section window leaderboard twelve columns resizable draggable">
+    <div class="title flex between">
+      <p>{{ page.title }}</p>
+      <button class="btn close">
+        <span class="visually-hidden">Click or press ESC to close</span>
+      </button>
+    </div>
+    <div class="wrapper">
+      <div class="row">
+        <div class="one column"><p>Rank</p></div>
+        <div class="six columns"><p>Challenge</p></div>
+        <div class="one columns t-right nnom"><p>Real</p></div>
+        <div class="two columns t-right nnom"><p>Contributions</p></div>
+        <div class="two columns t-right"><p>Average</p></div>
+      </div>
+      <ul class="leader">
+        {% for user in page.users %}
+          <li class="clearfix">
+            <div class="one column"><p>1</p></div>
+            <div class="six columns"><p><a class="profile-link" href="#">{{ user }}</a></p></div>
+            <div class="one columns t-right nnom"><p>5</p></div>
+            <div class="two columns t-right nnom"><p>6</p></div>
+            <div class="two columns t-right"><p>83.33%</p></div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="section window leaderboard twelve columns resizable draggable">
+    <div class="title flex between">
+      <p>{{ page.title }}</p>
+      <button class="btn close">
+        <span class="visually-hidden">Click or press ESC to close</span>
+      </button>
+    </div>
+    <div class="wrapper">
+      <div class="row">
+        <div class="one column"><p>Rank</p></div>
+        <div class="six columns"><p>Challenge</p></div>
+        <div class="one columns t-right nnom"><p>Real</p></div>
+        <div class="two columns t-right nnom"><p>Contributions</p></div>
+        <div class="two columns t-right"><p>Average</p></div>
+      </div>
+      <ul class="leader">
+        {% for user in page.users %}
+          <li class="clearfix">
+            <div class="one column"><p>1</p></div>
+            <div class="six columns"><p><a class="profile-link" href="#">{{ user }}</a></p></div>
+            <div class="one columns t-right nnom"><p>5</p></div>
+            <div class="two columns t-right nnom"><p>6</p></div>
+            <div class="two columns t-right"><p>83.33%</p></div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}

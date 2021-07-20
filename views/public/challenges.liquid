@@ -1,0 +1,26 @@
+{% layout 'public-layout', route: 'leaderboard' %}
+{% block content %}
+  <div class="section leaderboard twelve columns resizable draggable active">
+    <div class="title flex between">
+      <p>{{ page.title }}</p>
+      <button class="btn close">
+        <span class="visually-hidden">Click or press ESC to close</span>
+      </button>
+    </div>
+    <div class="wrapper">
+      {% for challenge in page.challenges %}
+        <img src="{{ challenge.image }}" height="120px">
+        <h2>{{ challenge.title }}</h2>
+        {% if challenge.type == 1 %}
+          <p>Real</p>
+        {% else %}
+          <p>3D</p>
+        {% endif %}
+        <h4>{{ challenge.author }}</h4>
+        <p>{{ challenge.description }}</p>
+        <a href="{{ challenge.url }}" target="_blank">View project</a>
+        <br><br><br>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
