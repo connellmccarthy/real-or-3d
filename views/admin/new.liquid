@@ -2,7 +2,7 @@
 {% block content %}
   <div class="wr">
     {% include 'includes/admin/page-title' %}
-    <form class="card" action="/admin/new" method="POST">
+    <form class="card" action="/admin/new" method="POST" enctype="multipart/form-data">
       <div class="fieldset">
         <label for="image">Image</label>
         <input id="image" type="file" name="image" required>

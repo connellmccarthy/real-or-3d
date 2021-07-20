@@ -3,6 +3,8 @@ const router = express.Router()
 const sql = require('@sql')
 const {login, verify} = require('@auth')
 const cloudinary = require('@cloudinary')
+const multipart = require('connect-multiparty')
+const multipartMiddleware = multipart()
 
 router.post('/login', login, async (req, res) => {
   res.redirect('/admin')
@@ -39,11 +41,11 @@ router.get('/new', (req, res) => {
   })
 })
 
-router.post('/new', async (req, res) => {
+router.post('/new', multipartMiddleware, async (req, res) => {
   let slug = req.body.title
   slug = slug.replace(/\s+/g, '-').toLowerCase()
   const challenge = {
-    image: req.body.image,
+    image: req.file,
     title: req.body.title,
     slug: slug,
     author: req.body.author,
@@ -55,7 +57,7 @@ router.post('/new', async (req, res) => {
     description: req.body.description,
     outlet: req.body.outlet
   }
-  cloudinary.upload(challenge.image, challenge.slug)
+  // cloudinary.upload(challenge.image, challenge.slug)
   console.log(challenge)
   req.flash('successMessage', 'Successfully created challenge')
   res.redirect('/admin')
