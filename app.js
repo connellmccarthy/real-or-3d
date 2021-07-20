@@ -72,6 +72,7 @@ const { config } = require('dotenv')
 
 //Handlers
 app.use('/', indexRouter)
+app.use('/challenges', indexRouter)
 
 app.listen(port, () => {
   console.log(`Listening at http://real-or-3d.local:${port}`);
