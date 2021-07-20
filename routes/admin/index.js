@@ -5,11 +5,11 @@ const {login, verify} = require('@auth')
 const cloudinary = require('@cloudinary')
 const multipart = require('connect-multiparty')
 const multipartMiddleware = multipart()
+const fs = require('fs')
 
 router.post('/login', login, async (req, res) => {
   res.redirect('/admin')
 })
-
 router.get('/login', (req, res) => {
   res.render('admin/login', {
     page: {
@@ -45,7 +45,7 @@ router.post('/new', multipartMiddleware, async (req, res) => {
   let slug = req.body.title
   slug = slug.replace(/\s+/g, '-').toLowerCase()
   const challenge = {
-    image: req.file,
+    image: req.files.image.path,
     title: req.body.title,
     slug: slug,
     author: req.body.author,
@@ -57,8 +57,18 @@ router.post('/new', multipartMiddleware, async (req, res) => {
     description: req.body.description,
     outlet: req.body.outlet
   }
-  // cloudinary.upload(challenge.image, challenge.slug)
+  await cloudinary.upload(challenge.image, challenge.slug)
+  
   console.log(challenge)
+  let resultHandler = function (err) {
+    if (err) {
+      console.log('unlink failed', err)
+    } else {
+      console.log('file deleted')
+    }
+  }
+  fs.unlink(challenge.image, resultHandler)
+
   req.flash('successMessage', 'Successfully created challenge')
   res.redirect('/admin')
 })
