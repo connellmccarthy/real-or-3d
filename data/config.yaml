@@ -14,7 +14,7 @@ site:
     - item:
       home: false
       title: "Challenges"
-      url: "/challenges/"
+      url: "/challenges"
     - item:
       home: false
       title: "Seasons"
