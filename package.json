@@ -39,6 +39,7 @@
   "_moduleAliases": {
     "@sql": "lib/sql.js",
     "@auth": "lib/auth.js",
-    "@cloudinary": "lib/cloudinary.js"
+    "@cloudinary": "lib/cloudinary.js",
+    "@api": "lib/controllers/api.js"
   }
 }

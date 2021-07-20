@@ -9,5 +9,14 @@
       
       {% block content %}{% endblock %}
     </div>
+    <script>
+      if (document.querySelector('form')) {
+        document.querySelectorAll('form').forEach(function(x) {
+          x.addEventListener('submit', function() {
+            document.querySelector('button[type="submit"]').classList.add('btn__loading')
+          })
+        })
+      }
+    </script>
   </body>
 </html>

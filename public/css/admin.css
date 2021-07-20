@@ -93,6 +93,38 @@ img {
   color: #6a2de2;
 }
 
+.btn__loading {
+  color: transparent !important;
+  pointer-events: none;
+  position: relative;
+}
+.btn__primary.btn__loading {
+  background: rgb(225 225 225) !important;
+}
+.btn__loading::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+  border: 2px solid #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  border: 3px solid;
+  border-color: #fff rgba(0,0,0,0.3)  rgba(0,0,0,0.3);
+  animation: loading 1s linear infinite;
+  transform-origin: top left;
+}
+@keyframes loading {
+  from {
+    transform: rotate(0deg) translate(-50%, -50%);
+  }
+  to {
+    transform: rotate(360deg) translate(-50%, -50%);
+  }
+}
+
 .p-0 {
   padding: 0;
 }
@@ -140,6 +172,7 @@ input[type="submit"] {
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="url"],
 textarea {
   background: rgb(245 245 245);
   border: none;

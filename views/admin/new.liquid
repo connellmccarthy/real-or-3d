@@ -2,7 +2,7 @@
 {% block content %}
   <div class="wr">
     {% include 'includes/admin/page-title' %}
-    <form class="card" action="/admin/new" method="POST" enctype="multipart/form-data">
+    <form id="new-challenge" class="card" action="/admin/new" method="POST" enctype="multipart/form-data">
       <div class="fieldset">
         <label for="image">Image</label>
         <input id="image" type="file" name="image" required>
@@ -16,6 +16,10 @@
           <label for="author">Author</label>
           <input id="author" type="text" name="author" required>
         </div>
+      </div>
+      <div class="fieldset">
+        <label for="url">Project URL</label>
+        <input id="url" type="url" name="url" required>
       </div>
       <div class="flex">
         <div class="fieldset">
@@ -33,12 +37,46 @@
       </div>
       <div class="flex">
         <div class="fieldset">
-          <label for="date_open">Date open</label>
-          <input id="date_open" type="datetime-local" name="date_open" required>
+          <label for="date_publish">Date open</label>
+          <input id="date_publish" type="datetime-local" name="date_publish" required>
+          <script>
+            const x = document.getElementById('date_publish');
+            function nextWednesday() {
+                var today = new Date();
+                var todayN = today.getDay();
+                var offset = (todayN < 3 ? 3 : 10) - todayN; // <--- the most important part
+                today.setDate(today.getDate() + offset);
+                return today;
+            }
+            Date.prototype.toDateInputValue = (function() {
+              let local = new Date(this);
+              local.setHours('07');
+              local.setMinutes('00');
+              return local.toJSON().slice(0,16);
+            });
+            x.value = new Date(nextWednesday()).toDateInputValue();
+          </script>
         </div>
         <div class="fieldset">
           <label for="date_close">Date close</label>
           <input id="date_close" type="datetime-local" name="date_close" required>
+          <script>
+            const y = document.getElementById('date_close');
+            function nextWednesday() {
+              var today = new Date();
+              var todayN = today.getDay();
+              var offset = (todayN < 3 ? 3 : 10) - todayN; // <--- the most important part
+              today.setDate(today.getDate() + offset);
+              return today;
+            }
+            Date.prototype.toDateInputValue = (function() {
+              let local = new Date(this);
+              local.setHours('12');
+              local.setMinutes('00');
+              return local.toJSON().slice(0,16);
+            });
+            y.value = new Date(nextWednesday()).toDateInputValue();
+          </script>
         </div>
       </div>
       <div class="fieldset">
@@ -50,7 +88,7 @@
         <label for="outlet">This challenge has an outlet</label>
       </div>
       
-      <input type="submit" class="btn btn__primary" value="Add new challenge">
+      <button type="submit" for="new-challenge" class="btn btn__primary">Add new challenge</button>
     </form>
   </div>
 {% endblock %}
