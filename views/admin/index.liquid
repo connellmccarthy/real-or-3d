@@ -2,5 +2,20 @@
 {% block content %}
   <div class="wr">
     {% include 'includes/admin/page-title' %}
+    <div class="card">
+      {% for challenge in page.challenges %}
+        <img src="{{ challenge.image }}" height="120px">
+        <h2>{{ challenge.title }}</h2>
+        {% if challenge.type == 1 %}
+          <p>Real</p>
+        {% else %}
+          <p>3D</p>
+        {% endif %}
+        <h4>{{ challenge.author }}</h4>
+        <p>{{ challenge.description }}</p>
+        <a href="{{ challenge.url }}" target="_blank">View project</a>
+        <br><br><br>
+      {% endfor %}
+    </div>
   </div>
 {% endblock %}

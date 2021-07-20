@@ -5,12 +5,13 @@ const {login, verify} = require('@auth')
 const cloudinary = require('@cloudinary')
 const multipart = require('connect-multiparty')
 const multipartMiddleware = multipart()
-const fs = require('fs')
+
+const api = require('@api')
 
 router.post('/login', login, async (req, res) => {
   res.redirect('/admin')
 })
-router.get('/login', (req, res) => {
+router.get('/login', async (req, res) => {
   res.render('admin/login', {
     page: {
       title: 'Login',
@@ -23,11 +24,14 @@ router.use('/*', verify, (req, res, next) => {
   next()
 })
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+  const challenges = await api.challenges.get()
+
   res.render('admin/index',  {
     page: {
       title: 'Dashboard',
-      toast: req.flash()
+      toast: req.flash(),
+      challenges: challenges
     }
   })
 })
@@ -44,30 +48,44 @@ router.get('/new', (req, res) => {
 router.post('/new', multipartMiddleware, async (req, res) => {
   let slug = req.body.title
   slug = slug.replace(/\s+/g, '-').toLowerCase()
+  let uuid = await sql.create_UUID('xxxx-xxxx', 'challenges')
+  slug = uuid + '-' + slug
+
+  let type;
+  if (req.body.type == 'real') {
+    type = true;
+  } else if (req.body.type == '3D') {
+    type = false;
+  }
+
+  let outlet;
+  if (req.body.outlet) {
+    outlet = true;
+  } else {
+    outlet = false;
+  }
+
   const challenge = {
+    uuid: uuid,
     image: req.files.image.path,
     title: req.body.title,
     slug: slug,
     author: req.body.author,
     season: req.body.season,
-    type: req.body.type,
-    date_post: new Date(),
-    date_open: req.body.date_open,
+    type: type,
+    date_added: new Date(),
+    date_publish: req.body.date_publish,
     date_close: req.body.date_close,
     description: req.body.description,
-    outlet: req.body.outlet
+    url: req.body.url,
+    outlet: outlet
   }
-  await cloudinary.upload(challenge.image, challenge.slug)
-  
-  console.log(challenge)
-  let resultHandler = function (err) {
-    if (err) {
-      console.log('unlink failed', err)
-    } else {
-      console.log('file deleted')
-    }
+
+  var cloud_image = await cloudinary.upload(challenge.image, challenge.slug)
+  if (cloud_image) {
+    challenge.image = cloud_image.url
   }
-  fs.unlink(challenge.image, resultHandler)
+  api.challenges.post(challenge)
 
   req.flash('successMessage', 'Successfully created challenge')
   res.redirect('/admin')
