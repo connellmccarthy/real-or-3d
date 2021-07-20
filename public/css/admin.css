@@ -9,6 +9,7 @@ body {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
   text-rendering: optimizeLegibility;
   background: #f8f8f8;
+  font-size: 14px;
 }
 .visually-hidden {
   clip: rect(0 0 0 0);
@@ -19,29 +20,11 @@ body {
   white-space: nowrap;
   width: 1px;
 }
-.flex {
-  display: flex;
-}
-.flex.d-vertical {
-  flex-direction: column;
-}
-.flex.between {
-  justify-content: space-between;
-}
-.flex.a-top {
-  align-items: flex-start;
-}
-.flex.a-center {
-  align-items: center;
-}
-.flex.a-bottom {
-  align-items: flex-end;
-}
 .danger {
-  color: red;
+  color: #FF5D54;
 }
 .success {
-  color: green;
+  color: #58C390;
 }
 img {
   max-width: 100%;
@@ -57,13 +40,10 @@ img {
   cursor: pointer;
 }
 .btn__icon_text i {
-  margin-right: 10px; 
+  margin-right: 4px; 
 }
 .btn__small {
   font-size: 12px;
-}
-a.btn {
-  font-size: 0.8em;
 }
 .btn__round {
   padding: 12px 13px;
@@ -78,17 +58,21 @@ a.btn {
   color: red;
 }
 .btn__primary {
-  background-color: #6a2de2;
+  background-color: #000;
   color: #fff;
 }
 .btn__primary:hover {
-  background-color: #753aea;
+  background-color: #0e0e0e;
 }
 .btn__primary:focus, .btn__primary:active {
-  background-color: #602bca;
+  background-color: #000;
 }
 .btn__secondary {
   background-color: #f8f8f8;
+}
+.btn__secondary.active {
+  background-color: #f1f1f1;
+  color: blue;
 }
 .btn__secondary:hover {
   background-color: #efefef;
@@ -153,12 +137,18 @@ label {
 input[type="submit"] {
   margin: 25px 0;
 }
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
   background: rgb(245 245 245);
   border: none;
   padding: 12px;
   border-radius: 4px;
   min-width: 100%;
+}
+textarea {
+  min-height: 100px;
 }
 input[type="date"] {
   padding: 9px;
@@ -172,12 +162,17 @@ input[type="email"].error,
 input[type="password"].error {
   border: 2px solid lightcoral;
 }
-select {
+select,
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"] {
   background: rgb(245 245 245);
   border: none;
   padding: 12px;
   border-radius: 4px;
   min-width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
 }
 select option {
   text-transform: capitalize;
@@ -185,9 +180,8 @@ select option {
 
 .main {
   display: grid;
-  grid-template-columns: 156px 1fr;
+  grid-template-columns: 200px 1fr;
 }
-
 .page_header {
   display: flex;
   justify-content: space-between;
@@ -223,42 +217,39 @@ p.copyright {
   display: flex;
   flex-wrap: wrap;
 }
+.flex.d-vertical {
+  flex-direction: column;
+}
+.flex.between {
+  justify-content: space-between;
+}
+.flex.a-top {
+  align-items: flex-start;
+}
+.flex.a-center {
+  align-items: center;
+}
+.flex.a-bottom {
+  align-items: flex-end;
+}
+.flex .fieldset {
+  width: calc(50% - 8px);
+}
+.flex .fieldset:first-of-type {
+  margin-right: 8px;
+}
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-ul.tracklist li {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #f8f8f8;
+form .fieldset {
+  margin-bottom: 24px;
 }
-ul.tracklist li:first-of-type {
-  padding-top: 0;
-}
-ul.tracklist li:last-of-type {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-ul.tracklist li .album-art {
-  height: 50px;
-  margin-right: 15px;
-}
-ul.tracklist li .album-art img {
-  height: 100%;
-  border-radius: 4px;
-}
-ul.tracklist li .track-info {
-  flex-grow: 1;
-}
-ul.tracklist li .track-info p {
-  margin: 4px 0;
-}
-ul.tracklist li .track-info p.track-artist {
-  font-size: 12px;
-  color: rgb(120,120,120);
+p.helper {
+  margin: 0;
+  margin-top: 0.5em;
+  color: rgb(150, 150, 150);
 }
 .pw-block {
   width: 400px;
@@ -324,7 +315,7 @@ ul.tracklist li .track-info p.track-artist {
   height: 100%;
 }
 .toast {
-  background: #202020;
+  background: #000;
   height: auto;
   width: auto;
   max-width: 200px;
@@ -334,6 +325,11 @@ ul.tracklist li .track-info p.track-artist {
   position: fixed;
   bottom: 8px;
   right: 8px;
+  animation-name: toast;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  opacity: 0;
 }
 .toast p {
   display: block;
@@ -344,16 +340,49 @@ ul.tracklist li .track-info p.track-artist {
 .toast .icon {
   margin-right: 8px;
 }
+@keyframes toast {
+  0% {
+    opacity: 0;
+    bottom: -100px;
+  }
+  20% {
+    opacity: 1;
+    bottom: 8px;
+  }
+  80% {
+    opacity: 1;
+    bottom: 8px;
+  }
+  100% {
+    opacity: 0;
+    bottom: 40px;
+  }
+}
 .navigation {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: auto;
-  padding: 1em;
+  padding: 1em 1.8em;
   border-right: 1px solid #d1d1d1;
   grid-column: 1;
 }
 .navigation .logo img {
   height: 80px;
+}
+.navigation a {
+  width: 100%;
+  text-align: center;
+}
+.nav-item {
+  margin-bottom: 4px;
+}
+.nav-item a {
+  text-align: left;
+}
+.new-challenge {
+  position: absolute;
+  top: 25px;
+  right: 25px;
 }

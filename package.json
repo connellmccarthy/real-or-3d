@@ -19,6 +19,7 @@
   "homepage": "https://github.com/connellmccarthy/real-or-3d#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cloudinary": "^1.26.2",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
@@ -36,6 +37,7 @@
   },
   "_moduleAliases": {
     "@sql": "lib/sql.js",
-    "@auth": "lib/auth.js"
+    "@auth": "lib/auth.js",
+    "@cloudinary": "lib/cloudinary.js"
   }
 }

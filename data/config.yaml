@@ -22,14 +22,14 @@ site:
   admin_menu:
     - item:
       title: "Dashboard"
-      url: "/admin/dashboard"
+      url: "/admin/"
       icon: "chart-line"
     - item:
       title: "Challenges"
-      url: "/admin/challenges"
+      url: "/admin/challenges/"
       icon: "images"
     - item:
       title: "Seasons"
-      url: "/admin/seasons"
+      url: "/admin/seasons/"
       icon: "folder-tree"
       

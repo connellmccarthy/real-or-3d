@@ -6,7 +6,7 @@
 
 	  gtag('config', 'UA-117103043-4');
 	</script>
-  <title>{{ site.title }} | {{ page.title }}</title>
+  <title>{{ site.title }} |{% if route == 'admin' %} Admin | {% endif %} {{ page.title }}</title>
   {% if route == 'admin' %}
     <link rel="stylesheet" href="/css/admin.css">
   {% else %}
@@ -17,7 +17,7 @@
     <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
     <style>
-      .ui-resizable-helper { border: 2px dotted #00F; }
+      .ui-resizable-helper { position: relative; border: 1px dotted #00F; z-index: 99999; }
       .ui-resizable { position: relative;}
       .ui-resizable-handle { position: absolute;font-size: 0.1px; display: block; }
       .ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }

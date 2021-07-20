@@ -7,12 +7,12 @@
   <ul class="nav-items">
     {% for item in site.admin_menu %}
       <li class="nav-item">
-        <a href="{{ item.url }}" class="btn">
+        <a href="{{ item.url }}" class="btn btn__secondary btn__icon_text {% if page.title == item.title %}active{% endif %}">
           <i class="fal fa-{{ item.icon }}" aria-hidden="true"></i>
           {{ item.title }}
         </a>
       </li>
     {% endfor %}
   </ul>
-  <a class="btn" href="/admin/logout/">Logout</a>
+  <a class="btn btn__secondary" href="/admin/logout/">Logout</a>
 </div>
