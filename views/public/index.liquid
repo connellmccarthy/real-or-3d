@@ -2,7 +2,7 @@
 {% block content %}
   <div class="section window leaderboard twelve columns resizable draggable">
     <div class="title flex between">
-      <p>{{ page.title }}</p>
+      <p>{{ page.leaderboard.title }}</p>
       <button class="btn close">
         <span class="visually-hidden">Click or press ESC to close</span>
       </button>
@@ -10,13 +10,13 @@
     <div class="wrapper">
       <div class="row">
         <div class="one column"><p>Rank</p></div>
-        <div class="six columns"><p>Challenge</p></div>
-        <div class="one columns t-right nnom"><p>Real</p></div>
+        <div class="six columns"><p>User</p></div>
+        <div class="one columns t-right nnom"><p>Right</p></div>
         <div class="two columns t-right nnom"><p>Contributions</p></div>
         <div class="two columns t-right"><p>Average</p></div>
       </div>
       <ul class="leader">
-        {% for user in page.users %}
+        {% for user in page.leaderboard.users %}
           <li class="clearfix">
             <div class="one column"><p>1</p></div>
             <div class="six columns"><p><a class="profile-link" href="#">{{ user }}</a></p></div>
@@ -30,55 +30,27 @@
   </div>
   <div class="section window leaderboard twelve columns resizable draggable">
     <div class="title flex between">
-      <p>{{ page.title }}</p>
+      <p>{{ page.challenges.title }}</p>
       <button class="btn close">
         <span class="visually-hidden">Click or press ESC to close</span>
       </button>
     </div>
     <div class="wrapper">
       <div class="row">
-        <div class="one column"><p>Rank</p></div>
-        <div class="six columns"><p>Challenge</p></div>
-        <div class="one columns t-right nnom"><p>Real</p></div>
-        <div class="two columns t-right nnom"><p>Contributions</p></div>
-        <div class="two columns t-right"><p>Average</p></div>
+        <div class="one column"><p>Week</p></div>
+        <div class="six columns"><p>Challange</p></div>
+        <div class="two columns nnom"><p>Real or 3D?</p></div>
+        <div class="one columns nnom"><p>Real</p></div>
+        <div class="one columns t-right"><p>3D</p></div>
       </div>
       <ul class="leader">
-        {% for user in page.users %}
+        {% for challenge in page.challenges.challenges %}
           <li class="clearfix">
             <div class="one column"><p>1</p></div>
-            <div class="six columns"><p><a class="profile-link" href="#">{{ user }}</a></p></div>
-            <div class="one columns t-right nnom"><p>5</p></div>
-            <div class="two columns t-right nnom"><p>6</p></div>
-            <div class="two columns t-right"><p>83.33%</p></div>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
-  <div class="section window leaderboard twelve columns resizable draggable">
-    <div class="title flex between">
-      <p>{{ page.title }}</p>
-      <button class="btn close">
-        <span class="visually-hidden">Click or press ESC to close</span>
-      </button>
-    </div>
-    <div class="wrapper">
-      <div class="row">
-        <div class="one column"><p>Rank</p></div>
-        <div class="six columns"><p>Challenge</p></div>
-        <div class="one columns t-right nnom"><p>Real</p></div>
-        <div class="two columns t-right nnom"><p>Contributions</p></div>
-        <div class="two columns t-right"><p>Average</p></div>
-      </div>
-      <ul class="leader">
-        {% for user in page.users %}
-          <li class="clearfix">
-            <div class="one column"><p>1</p></div>
-            <div class="six columns"><p><a class="profile-link" href="#">{{ user }}</a></p></div>
-            <div class="one columns t-right nnom"><p>5</p></div>
-            <div class="two columns t-right nnom"><p>6</p></div>
-            <div class="two columns t-right"><p>83.33%</p></div>
+            <div class="six columns"><p><a class="profile-link" href="#">{{ challenge.name }}</a></p></div>
+            <div class="two columns nnom"><p>{{ challenge.realOr3d }}</p></div>
+            <div class="one columns nnom"><p>{{ challenge.votesReal }}</p></div>
+            <div class="one columns t-right"><p>{{ challenge.votes3d }}</p></div>
           </li>
         {% endfor %}
       </ul>
