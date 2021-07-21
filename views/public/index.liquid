@@ -4,7 +4,10 @@
     {% if app.open %}
       <div class="section window resizable draggable {% if app.default %}active{% endif %}" data-id="{{ app.id }}" style="left: {{ app.pos_x }}; top: {{ app.pos_y }};">
         <div class="title flex between">
-          <p>{{ app.title }}</p>
+          <p class="flex a-center">
+            <img src="/img/icons/{{ app.icon }}.png" height="20px">
+            {{ app.title }}
+          </p>
           <button class="btn close" data-id="{{ app.id }}">
             <span class="visually-hidden">Click or press ESC to close</span>
           </button>

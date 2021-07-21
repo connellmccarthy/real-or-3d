@@ -318,6 +318,9 @@ body.vip .section {
 	background: #010080;
 	color: #fff;
 }
+.section .title img {
+	margin-right: 4px;
+}
 body.vip .section .title {
 	background:var(--ui-title-vip);
 	color:var(--text-vip);
