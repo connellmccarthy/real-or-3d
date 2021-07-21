@@ -1,14 +1,20 @@
 <div class="taskbar section flex between a-center">
   <div class="tabs flex">
-    {% for item in site.menu %}
-      <a href="{{ item.url }}" class="btn slim {% if page.title == item.title %}active{% endif %}">
-        <p class="flex a-center">
-          {% if item.home %}
-            <img src="/img/icon.png" height="20px" style="margin-right: 5px;">
-          {% endif %}
-          {{ item.title }}
-        </p>
-      </a>
+    <button class="btn slim start">
+      <p class="flex a-center">
+        <img src="/img/icons/start.png" height="20px">
+        Start
+      </p>
+    </button>
+    {% for app in site.applications %}
+      {% if app.open %}
+        <button class="btn slim tab {% if app.default %}active{% endif %}" data-id="{{ app.id }}">
+          <p class="flex a-center">
+            <img src="/img/icons/{{ app.icon }}.png" height="20px">
+            {{ app.title }}
+          </p>
+        </button>
+      {% endif %}
     {% endfor %}
   </div>
   <div class="date flex a-center">

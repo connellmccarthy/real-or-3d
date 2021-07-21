@@ -2,23 +2,28 @@ site:
   title: "Real or 3D"
   description: "Real or 3D is the game where you test your eye for detail, and guess whether a photo is a 3D render or a real photograph."
   copyright: "2021 Connell McCarthy"
-  menu:
-    - item:
-      home: true
-      title: "Leaderboard"
-      url: "/"
-    - item:
-      home: false
-      title: "Icebox"
-      url: "/icebox/"
-    - item:
-      home: false
-      title: "Challenges"
-      url: "/challenges"
-    - item:
-      home: false
-      title: "Seasons"
-      url: "/seasons/"
+  applications:
+    - title: "Leaderboard"
+      id: 'leaderboard'
+      icon: "leaderboard"
+      default: true
+      open: true
+      pos_x: '260px'
+      pos_y: '200px'
+    - title: "Icebox"
+      id: "icebox"  
+      icon: "icebox"
+      open: false
+    - title: "Challenges"
+      id: "challenges"  
+      icon: "challenges"
+      open: true
+      pos_x: '160px'
+      pos_y: '60px'
+    - title: "Seasons"
+      id: "seasons"
+      icon: "seasons"
+      open: false
   admin_menu:
     - item:
       title: "Dashboard"

@@ -19,11 +19,6 @@ $('a.innav').on('click', function() {
 		window.location.href = newloc;
 	},200);
 });
-$('body').on('click', '.btn.close', function() {
-	$('audio#click')[0].play();
-	closewindow($(this).parent());
-	event.preventDefault();
-});
 $('body').on('mousedown', '.profile', function() {
 	$('.profile.active').removeClass('active');
 	$(this).addClass('active');

@@ -1,3 +1,15 @@
+<script>
+  var open_windows = new Array()
+  var active_window
+  {% for app in site.applications %}
+    {% if app.open %}
+      open_windows.push('{{ app.id }}')
+    {% endif %}
+    {% if app.default %}
+      active_window = '{{ app.id }}'
+    {% endif %}
+  {% endfor %}
+</script>
 <script type="text/javascript" src="/js/index.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
 <script type="text/javascript" src="/js/jquery.confetti.js"></script>
