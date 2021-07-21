@@ -5,20 +5,17 @@ const api = require('@api')
 
 router.get('/', async (req, res) => {
   const users = ['@someone', '@someoneelse', '@tacos', '@pizza']
+  const challenges = await api.challenges.get()
   res.render('public/index', {
     page: {
-      title: 'Leaderboard',
-      users: users
-    }
-  });
-})
-
-router.get('/challenges', async (req, res) => {
-  const challenges = await api.challenges.get()
-  res.render('public/challenges', {
-    page: {
-      title: 'Challenges',
-      challenges: challenges
+      leaderboard: {
+        title: 'Leaderboard',
+        users: users
+      },
+      challenges: {
+        title: 'Challenges',
+        challenges: challenges
+      }
     }
   });
 })
