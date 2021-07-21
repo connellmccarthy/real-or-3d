@@ -8,7 +8,7 @@
     </button>
     {% for app in site.applications %}
       {% if app.open %}
-        <button class="btn slim {% if app.title == 'Leaderboard' %}active{% endif %}">
+        <button class="btn slim tab {% if app.default %}active{% endif %}" data-id="{{ app.id }}">
           <p class="flex a-center">
             <img src="/img/icons/{{ app.icon }}.png" height="20px">
             {{ app.title }}

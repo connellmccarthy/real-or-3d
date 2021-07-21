@@ -1,0 +1,10 @@
+<div class="applications__list flex d-vertical a-center">
+  {% for app in site.applications %}
+    <button class="application">
+      <p class="flex d-vertical a-center">
+        <img src="/img/icons/{{ app.icon }}.png" width="32px" class="application__icon">
+        <span class="application__label">{{ app.title }}</p>
+      </p>
+    </button>
+  {% endfor %}
+</div>

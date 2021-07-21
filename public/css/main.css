@@ -9,6 +9,7 @@
 	src: url('/fonts/ms_sans_serif-webfont_bold.woff2') format('woff2'),
 			 url('/fonts/ms_sans_serif-webfont_bold.woff') format('woff');
 	font-weight: 500;
+	text-rendering: optimizeLegibility;
 }
 ::selection {
 	background:#010080;
@@ -77,6 +78,9 @@ h1,h2,h3,h4,b {
 .flex.a-center {
 	align-items: center;
 }
+.flex.d-vertical {
+	flex-direction: column;
+}
 a,
 button {
 	cursor: url(/img/cur/pointer.gif) 10 10, pointer;
@@ -88,7 +92,7 @@ button.btn {
   border-radius: 0;
 	position: relative;
 	z-index: 2;
-	color:#404040;
+	color:#000;
 	text-decoration: none;
 	padding:10px;
 	background:var(--ui-bg);
@@ -116,6 +120,9 @@ button.btn.active {
 	border-left-color: var(--ui-outer-b-2);
 	border-bottom-color: var(--ui-inner-s);
 	border-right-color: var(--ui-inner-s);
+}
+a.btn.active p,
+button.btn.active p {
 	font-weight: 500;
 }
 a.btn::after,
@@ -265,7 +272,7 @@ body.vip .sidebar .nav li a {
 	
 }
 .section {
-	position: relative;
+	position: absolute;
 	z-index: 1;
 	background:var(--ui-bg);
 	margin-bottom:25px;
@@ -277,6 +284,10 @@ body.vip .sidebar .nav li a {
 	border-bottom-color: var(--ui-outer-b-2);
 	border-right-color: var(--ui-outer-b-2);
 	box-shadow: inset 3px 3px 0px rgba(255,255,255,.5);
+}
+.section.window {
+	min-width: 500px;
+	min-height: 130px;
 }
 body.vip .section {
 	background:var(--ui-bg-vip);
@@ -549,9 +560,52 @@ canvas#confettiCanvas {
 	margin-right: 4px;
 }
 .taskbar .tabs button.start {
-	font-weight: 500;
 	padding: 4px;
+}
+.taskbar .tabs button.start p {
+	font-weight: 500;
 }
 .taskbar.tabs button:last-of-type {
   margin-right: 0;
+}
+
+.applications__list {
+	position: relative;
+	top: 12px;
+	left: 12px;
+	width: fit-content;
+}
+.application {
+	width: fit-content;
+	height: fit-content;
+	align-items: center;
+	background: unset;
+	border: unset;
+	-webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+	display: block;
+	text-align: center;
+  margin: 0;
+	font-family: 'MS Serif', monospace;
+	font-weight: 400;
+	margin-bottom: 12px;
+	border: 1px dotted transparent;
+}
+.application:active,
+.application:focus {
+	border-color: #000;
+}
+.application p {
+	margin: 0;
+}
+.application__label {
+	margin: 5px 0;
+	padding: 2px 4px;
+	background: rgba(0,0,0,0.8);
+	color: #fff;
+}
+.application:active .application__label,
+.application:focus .application__label {
+	background: #010080;
 }

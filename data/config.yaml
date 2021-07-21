@@ -4,15 +4,24 @@ site:
   copyright: "2021 Connell McCarthy"
   applications:
     - title: "Leaderboard"
+      id: 'leaderboard'
       icon: "leaderboard"
+      default: true
       open: true
+      pos_x: '260px'
+      pos_y: '200px'
     - title: "Icebox"
+      id: "icebox"  
       icon: "icebox"
       open: false
     - title: "Challenges"
+      id: "challenges"  
       icon: "challenges"
       open: true
+      pos_x: '160px'
+      pos_y: '60px'
     - title: "Seasons"
+      id: "seasons"
       icon: "seasons"
       open: false
   admin_menu:
