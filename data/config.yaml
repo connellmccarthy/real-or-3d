@@ -6,10 +6,10 @@ site:
     - title: "Leaderboard"
       id: 'leaderboard'
       icon: "leaderboard"
-      default: true
+      topbar: true
       open: true
-      pos_x: '260px'
-      pos_y: '200px'
+      pos_x: '260'
+      pos_y: '200'
     - title: "Icebox"
       id: "icebox"  
       icon: "icebox"
@@ -17,9 +17,11 @@ site:
     - title: "Challenges"
       id: "challenges"  
       icon: "challenges"
+      default: true
       open: true
-      pos_x: '160px'
-      pos_y: '60px'
+      topbar: false
+      pos_x: '160'
+      pos_y: '60'
     - title: "Seasons"
       id: "seasons"
       icon: "seasons"

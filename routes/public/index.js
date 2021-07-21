@@ -8,13 +8,11 @@ router.get('/', async (req, res) => {
   const challenges = await api.challenges.get()
   res.render('public/index', {
     page: {
-      leaderboard: {
-        title: 'Leaderboard',
-        users: users
-      },
+      title: 'Leaderboard'
+    },
+    applications: {
       challenges: {
-        title: 'Challenges',
-        challenges: challenges
+        content: challenges
       }
     }
   });
