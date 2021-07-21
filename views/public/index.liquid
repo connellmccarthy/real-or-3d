@@ -37,20 +37,38 @@
     </div>
     <div class="wrapper">
       <div class="row">
-        <div class="one column"><p>Week</p></div>
-        <div class="six columns"><p>Challange</p></div>
-        <div class="two columns nnom"><p>Real or 3D?</p></div>
-        <div class="one columns nnom"><p>Real</p></div>
-        <div class="one columns t-right"><p>3D</p></div>
+        <div class="one column"><p>Season</p></div>
+        <div class="two columns"><p>Title</p></div>
+        <div class="four columns"><p>Description</p></div>
+        <div class="three columns nnom"><p>Author</p></div>
+        <div class="one columns nnom"><p>Real or 3D?</p></div>
+        <div class="one columns t-right"><p>Outlets?</p></div>
       </div>
       <ul class="leader">
         {% for challenge in page.challenges.challenges %}
           <li class="clearfix">
-            <div class="one column"><p>1</p></div>
-            <div class="six columns"><p><a class="profile-link" href="#">{{ challenge.name }}</a></p></div>
-            <div class="two columns nnom"><p>{{ challenge.realOr3d }}</p></div>
-            <div class="one columns nnom"><p>{{ challenge.votesReal }}</p></div>
-            <div class="one columns t-right"><p>{{ challenge.votes3d }}</p></div>
+            <div class="one column"><p>{{ challenge.season }}</p></div>
+            <div class="two columns"><p><a class="profile-link" href={{challenge.url}} target="_blank">{{ challenge.title }}</a></p></div>
+            <div class="four columns nnom"><p>{{ challenge.description }}</p></div>
+            <div class="three columns nnom"><p>{{ challenge.author }}</p></div>
+            <div class="one columns nnom">
+              <p>
+                {% if challenge.type == 0 %}
+                  3D
+                {% else %}
+                  Real
+                {% endif %}
+              </p>
+            </div>
+            <div class="one columns t-right">
+              <p>
+                {% if challenge.outlets == 1 %}
+                  Yes
+                {% else %}
+                  No
+                {% endif %}
+              </p>
+            </div>
           </li>
         {% endfor %}
       </ul>
