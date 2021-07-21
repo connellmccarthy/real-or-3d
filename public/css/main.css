@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,700&display=swap');
 @font-face {
     font-family: 'MS Serif';
     src: url('/fonts/ms_sans_serif-webfont.woff2') format('woff2'),
          url('/fonts/ms_sans_serif-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+	font-family: 'MS Serif';
+	src: url('/fonts/ms_sans_serif-webfont_bold.woff2') format('woff2'),
+			 url('/fonts/ms_sans_serif-webfont_bold.woff') format('woff');
+	font-weight: 500;
 }
 ::selection {
 	background:#010080;
@@ -98,9 +102,12 @@ button.btn {
   width: fit-content;
 	text-align: center;
   margin: 0;
+	font-family: 'MS Serif', monospace;
+	font-weight: 400;
 }
-a.btn.slim {
-	padding: 4px 10px;
+a.btn.slim,
+button.btn.slim {
+	padding: 4px 40px 4px 4px;
 }
 a.btn.active,
 button.btn.active {
@@ -109,6 +116,7 @@ button.btn.active {
 	border-left-color: var(--ui-outer-b-2);
 	border-bottom-color: var(--ui-inner-s);
 	border-right-color: var(--ui-inner-s);
+	font-weight: 500;
 }
 a.btn::after,
 button.btn::after {
@@ -534,9 +542,16 @@ canvas#confettiCanvas {
 	background: var(--ui-outer-b-3);
 	margin: 0 12px;
 }
-.taskbar .tabs a {
+.taskbar .tabs button {
   margin-right: 4px;
 }
-.taskbar.tabs a:last-of-type {
+.taskbar .tabs button img {
+	margin-right: 4px;
+}
+.taskbar .tabs button.start {
+	font-weight: 500;
+	padding: 4px;
+}
+.taskbar.tabs button:last-of-type {
   margin-right: 0;
 }
