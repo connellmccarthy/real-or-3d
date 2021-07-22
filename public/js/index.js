@@ -121,18 +121,8 @@ function closeWindow(id) {
 
 function createWindow(reference, template, uuid) {
   clean()
-  let window
-  let tab
-  switch (template) {
-    case 'challenge':
-      window = challenge(reference, 'window', uuid)
-      tab = challenge(reference, 'tab', uuid)
-      break;
-    case 'default':
-      window = newWindow(reference, 'window', uuid)
-      tab = newTab(reference, 'tab', uuid)
-      break;
-  }
+  let window = newWindow(reference, uuid)
+  let tab = newTab(reference, uuid)
   document.body.appendChild(window)
   let top = parseInt(current_offset[0]) + 20
   let left = parseInt(current_offset[1]) + 20
@@ -150,68 +140,33 @@ function createWindow(reference, template, uuid) {
   },300)
 }
 
-function challenge(reference, type, uuid) {
+function newWindow(reference, uuid){
   let object
-  if (type == 'window') {
-    object = document.createElement('div')
-    object.classList.add('section', 'window', 'challenge', 'draggable')
-    object.setAttribute('data-id', `${uuid}`)
-
-    let title = document.createElement('div')
-    title.classList.add('title', 'flex', 'between')
-    title.innerHTML = `<p class="flex a-center"><img src="/img/icons/challenges.png" height="20px">${reference.getAttribute('data-date')}</p><button class="btn close" data-id="${uuid}"><span class="visually-hidden">Click or press ESC to close</span></button>`
-
-    var challengeRoute = new XMLHttpRequest()
-    challengeRoute.open("GET", `/challenges/${uuid}`, false)
-    challengeRoute.send()
-
-    let content = document.createElement('div')
-    content.innerHTML = challengeRoute.responseText
-    
-    object.appendChild(title)
-    object.appendChild(content)
-
-
-  } else if (type == 'tab') {
-    object = document.createElement('button')
-    object.classList.add('btn', 'slim', 'tab')
-    object.setAttribute('data-id', `${uuid}`)
-    
-    let content = document.createElement('p')
-    content.classList.add('flex', 'a-center')
-    content.innerHTML = `<img src="/img/icons/challenges.png" height="20px">${reference.getAttribute('data-date')}`
-
-    object.appendChild(content)
-  } else {
-    object = null
-  }
-  return object
-}
-
-function newWindow(reference, type, uuid) {
-  let object
-  
+  console.log(reference)
   object = document.createElement('div')
-  object.classList.add('section', 'window', 'challenge', 'resizable', 'draggable')
+  object.classList.add('section', 'window', 'resizable', 'draggable', reference.getAttribute('data-class'))
   object.setAttribute('data-id', `${uuid}`)
 
   let title = document.createElement('div')
   title.classList.add('title', 'flex', 'between')
   title.innerHTML = `<p class="flex a-center"><img src="/img/icons/${reference.getAttribute('data-icon')}.png" height="20px">${reference.getAttribute('data-title')}</p><button class="btn close" data-id="${uuid}"><span class="visually-hidden">Click or press ESC to close</span></button>`
 
-  var challengeRoute = new XMLHttpRequest()
-  challengeRoute.open("GET", '/challenges', false)
-  challengeRoute.send()
+  console.log("this is the title " + reference.getAttribute('data-title'))
+
+  var windowContentRoute = new XMLHttpRequest()
+  windowContentRoute.open("GET", reference.getAttribute('data-url'), false)
+  windowContentRoute.send()  
 
   let content = document.createElement('div')
-  content.innerHTML = challengeRoute.responseText
+  content.innerHTML = windowContentRoute.responseText
 
   object.appendChild(title)
   object.appendChild(content)
 
   return object
 }
-function newTab(reference, type, uuid) {
+
+function newTab(reference, uuid) {
   object = document.createElement('button')
   object.classList.add('btn', 'slim', 'tab')
   object.setAttribute('data-id', `${uuid}`)

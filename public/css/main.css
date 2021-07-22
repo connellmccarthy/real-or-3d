@@ -294,6 +294,22 @@ body.vip .sidebar .nav li a {
 	top: 0;
 	left: 0;
 }
+.section.window .statusbar {
+	position: relative;
+	bottom: 0;
+	left: 0;
+	margin: 4px 0;
+	width: 100%;
+	padding: 2px;
+	border: 2px solid;
+	border-top-color: var(--ui-outer-b-3);
+	border-left-color: var(--ui-outer-b-3);
+	border-bottom-color: var(--ui-inner-s);
+	border-right-color: var(--ui-inner-s);
+}
+.section.window .statusbar p {
+	margin: 0;
+}
 body.vip .section {
 	background:var(--ui-bg-vip);
 }
@@ -395,6 +411,9 @@ body.vip .section .title {
 	border-bottom-color:var(--ui-inner-s);
 	height: 100%;
 	overflow: scroll;
+}
+.content.with_status {
+	height: calc(100% - 22px);
 }
 ul.leader li a.profile-link:active {
 	border:1px dotted #808080;

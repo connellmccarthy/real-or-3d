@@ -17,6 +17,7 @@ site:
     - title: "Challenges"
       id: "challenges"  
       icon: "challenges"
+      url: "/challenges"
       default: true
       open: true
       topbar: false

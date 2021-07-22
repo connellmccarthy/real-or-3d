@@ -12,12 +12,10 @@
     {% for object in applications[app.id].content %}
       <button class="application challenge" 
         data-id="{{ object.uuid }}" 
-        data-title="{{ object.title }}" 
-        data-date="{{ object.date_publish | date: "%b %d %Y" }}"
-        data-author="{{ object.author }}" 
-        data-description="{{ object.description }}"
-        data-image="{{ object.image }}"
-        data-url="{{ object.url }}">
+        data-title="{{ object.date_publish | date: "%b %d %Y" }}"
+        data-icon="challenges"
+        data-class="challenge"
+        data-url="/challenges/{{ object.uuid }}" >
         <p class="flex d-vertical a-center">
           <img src="/img/icons/{{ app.id }}.png" width="32px" class="application__icon">
           <span class="application__label">{{ object.date_publish | date: "%b %d %Y" }}</p>

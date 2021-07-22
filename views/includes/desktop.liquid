@@ -1,6 +1,11 @@
 <div class="applications__list flex d-vertical a-center">
   {% for app in site.applications %}
-    <button class="application desktop" data-id="{{ app.id }}" data-icon="{{ app.icon }}" data-title="{{ app.title }}">
+    <button class="application desktop" 
+      data-id="{{ app.id }}"
+      data-icon="{{ app.icon }}"
+      data-title="{{ app.title }}"
+      data-url="{{ app.url }}"
+      data-class="{{ app.id }}">
       <p class="flex d-vertical a-center">
         <img src="/img/icons/{{ app.icon }}.png" width="32px" class="application__icon">
         <span class="application__label">{{ app.title }}</p>

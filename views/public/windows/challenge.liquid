@@ -1,5 +1,18 @@
 <div class="wrapper">
-  <div class="content">
+  <div class="content with_status">
     <img class="challenge__image" src="{{challenge.image}}">
+    <button class="btn">Real</button>
+    <button class="btn">3D</button>
+  </div>
+  <div class="statusbar flex">
+    <p class="challenge__title">{{ challenge.title }}</p>
+    <p class="author">Created by: {{ challenge.author }}</p>
   </div>
 </div>
+
+<!-- things we need
+ - project link
+ - vote count
+ - vote percentage
+ - real or 3d? (kinda)
+ -->
