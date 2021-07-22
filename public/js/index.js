@@ -161,9 +161,12 @@ function challenge(reference, type, uuid) {
     title.classList.add('title', 'flex', 'between')
     title.innerHTML = `<p class="flex a-center"><img src="/img/icons/challenges.png" height="20px">${reference.getAttribute('data-date')}</p><button class="btn close" data-id="${uuid}"><span class="visually-hidden">Click or press ESC to close</span></button>`
 
+    var challengeRoute = new XMLHttpRequest()
+    challengeRoute.open("GET", `/challenges/${uuid}`, false)
+    challengeRoute.send()
+
     let content = document.createElement('div')
-    content.classList.add('wrapper')
-    content.innerHTML = `<div class="content"><img class="challenge__image" src="${reference.getAttribute('data-image')}"></div>`;
+    content.innerHTML = challengeRoute.responseText
     
     object.appendChild(title)
     object.appendChild(content)

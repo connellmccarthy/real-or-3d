@@ -29,4 +29,12 @@ router.get('/challenges', async (req, res) => {
   })
 })
 
+router.get('/challenges/:uuid', async (req, res) => {
+  const challenge = await api.challenges.getByChallengeID(req.params.uuid)
+  console.log(challenge)
+  res.render('public/windows/challenge', {
+    challenge: challenge
+  })
+})
+
 module.exports = router
