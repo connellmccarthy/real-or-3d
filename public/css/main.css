@@ -47,7 +47,9 @@ body {
 body.vip {
 	background:#000;
 }
-body.loading, body.loading a {
+body.loading,
+body.loading a,
+body.loading button {
 	cursor: url(/img/cur/loading.gif) 10 10, auto !important;
 }
 .visually-hidden {

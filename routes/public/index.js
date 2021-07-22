@@ -18,4 +18,15 @@ router.get('/', async (req, res) => {
   });
 })
 
+router.get('/challenges', async (req, res) => {
+  const challenges = await api.challenges.get()
+  res.render('public/windows/challenges', {
+    applications: {
+      challenges: {
+        content: challenges
+      }
+    }
+  })
+})
+
 module.exports = router

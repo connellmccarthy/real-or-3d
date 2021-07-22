@@ -12,34 +12,7 @@
             <span class="visually-hidden">Click or press ESC to close</span>
           </button>
         </div>
-        <div class="wrapper">
-          {% if app.topbar %}
-            <div class="row">
-              <div class="one column"><p>Rank</p></div>
-              <div class="six columns"><p>Challenge</p></div>
-              <div class="one columns t-right nnom"><p>Real</p></div>
-              <div class="two columns t-right nnom"><p>Contributions</p></div>
-              <div class="two columns t-right"><p>Average</p></div>
-            </div>
-          {% endif %}
-          <div class="content flex">
-            {% for object in applications[app.id].content %}
-              <button class="application challenge" 
-                data-id="{{ object.uuid }}" 
-                data-title="{{ object.title }}" 
-                data-date="{{ object.date_publish | date: "%b %d %Y" }}"
-                data-author="{{ object.author }}" 
-                data-description="{{ object.description }}"
-                data-image="{{ object.image }}"
-                data-url="{{ object.url }}">
-                <p class="flex d-vertical a-center">
-                  <img src="/img/icons/{{ app.id }}.png" width="32px" class="application__icon">
-                  <span class="application__label">{{ object.date_publish | date: "%b %d %Y" }}</p>
-                </p>
-              </button>
-            {% endfor %}
-          </div>
-        </div>
+        {% include 'includes/applications/challenges' app: app %}
       </div>
     {% endif %}
   {% endfor %}
