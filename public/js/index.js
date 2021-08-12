@@ -85,7 +85,6 @@ function desktopApplication(event) {
       changeWindow(element.getAttribute('data-id'))
     } else {
       click()
-      document.body.classList.toggle('loading')
       createWindow(element, 'default', element.getAttribute('data-id'))
     } 
   }
@@ -120,6 +119,7 @@ function closeWindow(id) {
 }
 
 function createWindow(reference, template, uuid) {
+  document.body.classList.toggle('loading')
   clean()
   let window = newWindow(reference, uuid)
   let tab = newTab(reference, uuid)
